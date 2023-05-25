@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+jwt:
+  secret: igKfMMqVL7VukgNh6syQSbQxeCCMHoZAF4eoLT2CdLQwJS3s2bNjFiucPvGjxizJRxxDoSo4WHULwTKMLzrYBz3oS6
+  expiration: 3600

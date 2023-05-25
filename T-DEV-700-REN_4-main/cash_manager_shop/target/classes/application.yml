@@ -1,0 +1,17 @@
+server:
+  port: 8092
+
+jwt:
+  secret: igKfMMqVL7VukgNh6syQSbQxeCCMHoZAF4eoLT2CdLQwJS3s2bNjFiucPvGjxizJRxxDoSo4WHULwTKMLzrYBz3oS6
+  expiration: 3600
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/?retryWrites=true&w=majority
+      database: cash_manager
+
+token:
+  access-josephine: eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiUk9MRV9TQUxFIiwiZnVsbE5hbWUiOiJqb3NlcGhpbmUgbGVnb2ZmIiwiaWQiOiI2Mzg0ODRlNzU1MjM3NzQwOTU3NmZhMmUiLCJlbWFpbCI6Impvc2VwaGluZUBlbWFpbC5jb20iLCJzdWIiOiI2Mzg0ODRlNzU1MjM3NzQwOTU3NmZhMmUiLCJpYXQiOjE2Njk2MjkxNjZ9.ukImpl6cnD4k4ILbNgocJA0_vnRoz1m4NbJ9C-JonLZodb6PGgUGpWxA2giiDzpAO_VZFvvv28Iv02wRFXv9lg
+  access-bernadette: eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiUk9MRV9TQUxFIiwiZnVsbE5hbWUiOiJiZXJuYWRldHRlIGR1cG9uZCIsImlkIjoiNjM4NDg0OWY1NTIzNzc0MDk1NzZmYTJjIiwiZW1haWwiOiJiZXJuYWRldHRlQGVtYWlsLmNvbSIsInN1YiI6IjYzODQ4NDlmNTUyMzc3NDA5NTc2ZmEyYyIsImlhdCI6MTY2OTYyOTEwMn0.ukpFSRPWAVs3WaDWO8jYpE-s8eCg2VCo7xguu1V8qZXs9ZT2kgxvCWp7PqV78d4SnT7JP_jRaXycWgI0dI0rTw
+

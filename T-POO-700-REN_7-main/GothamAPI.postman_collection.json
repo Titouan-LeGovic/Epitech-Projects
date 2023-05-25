@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "1df9422d-323e-4d08-9efe-40bfe7989e4c",
+		"name": "GothamAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5327065"
+	},
+	"item": [
+		{
+			"name": "GET User",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const req = {",
+							"    url: `${pm.variables.get(\"apiURL\")}/api/users`,",
+							"    method: 'POST',",
+							"    header: {",
+							"        'Content-Type': 'application/json'",
+							"    },",
+							"    body: {",
+							"        mode: 'raw',",
+							"        raw: JSON.stringify({ user: { username: \"TempUser\", email: \"temp@email.com\" } })",
+							"    }",
+							"}",
+							"",
+							"pm.sendRequest(req, (error, response) => {",
+							"    pm.expect(response.code).to.eq(201)",
+							"    const data = response.json().data",
+							"    pm.variables.set('createdUserID', data.id)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const deleteUser = (userID) => {",
+							"    const deleteRequest = {",
+							"        url: `${pm.variables.get('apiURL')}/api/users/${userID}`,",
+							"        method: 'DELETE'",
+							"    }",
+							"",
+							"    pm.sendRequest(deleteRequest, (err, res) => {",
+							"        pm.expect(res.code).to.eq(204)",
+							"    })",
+							"}",
+							"",
+							"",
+							"pm.test('User is valid', () => {",
+							"    pm.expect(pm.response.code).to.eq(200)",
+							"    const resData = pm.response.json().data",
+							"    pm.expect(resData.id).to.eq(pm.variables.get('createdUserID'))",
+							"    deleteUser(resData.id)",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/users/:userID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						":userID"
+					],
+					"variable": [
+						{
+							"key": "userID",
+							"value": "{{createdUserID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const deleteUser = (userID) => {",
+							"    const deleteRequest = {",
+							"        url: `${pm.variables.get('apiURL')}/api/users/${userID}`,",
+							"        method: 'DELETE'",
+							"    }",
+							"",
+							"    pm.sendRequest(deleteRequest, (err, res) => {",
+							"        pm.expect(res.code).to.eq(204)",
+							"    })",
+							"}",
+							"",
+							"pm.test('User was created', () => {",
+							"    pm.expect(pm.response.code).to.eq(201)",
+							"    deleteUser(pm.response.json().data.id)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"username\": \"{{$randomUserName}}\",\n        \"email\": \"{{$randomEmail}}\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT User",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const req = {",
+							"    url: `${pm.variables.get(\"apiURL\")}/api/users`,",
+							"    method: 'POST',",
+							"    header: {",
+							"        'Content-Type': 'application/json'",
+							"    },",
+							"    body: {",
+							"        mode: 'raw',",
+							"        raw: JSON.stringify({ user: { username: \"userToEdit\", email: \"edit@email.com\" } })",
+							"    }",
+							"}",
+							"",
+							"pm.sendRequest(req, (error, response) => {",
+							"    pm.expect(response.code).to.eq(201)",
+							"    const data = response.json().data",
+							"    pm.variables.set('createdUserID', data.id)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const deleteUser = (userID) => {",
+							"    const deleteRequest = {",
+							"        url: `${pm.variables.get('apiURL')}/api/users/${userID}`,",
+							"        method: 'DELETE'",
+							"    }",
+							"",
+							"    pm.sendRequest(deleteRequest, (err, res) => {",
+							"        pm.expect(res.code).to.eq(204)",
+							"    })",
+							"}",
+							"",
+							"",
+							"pm.test('User is valid', () => {",
+							"    pm.expect(pm.response.code).to.eq(200)",
+							"    const resData = pm.response.json().data",
+							"    pm.expect(resData.id).to.eq(pm.variables.get('createdUserID'))",
+							"    pm.expect(resData.username).to.equal(\"editedUsername\")",
+							"    pm.expect(resData.email).to.equal(\"editedEmail@new.com\")",
+							"    deleteUser(resData.id)",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"username\": \"editedUsername\",\n        \"email\": \"editedEmail@new.com\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{apiURL}}/api/users/:userID",
+					"host": [
+						"{{apiURL}}"
+					],
+					"path": [
+						"api",
+						"users",
+						":userID"
+					],
+					"variable": [
+						{
+							"key": "userID",
+							"value": "{{createdUserID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE User",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const req = {",
+							"    url: `${pm.variables.get(\"apiURL\")}/api/users`,",
+							"    method: 'POST',",
+							"    header: {",
+							"        'Content-Type': 'application/json'",
+							"    },",
+							"    body: {",
+							"        mode: 'raw',",
+							"        raw: JSON.stringify({ user: { username: \"userToEdit\", email: \"edit@email.com\" } })",
+							"    }",
+							"}",
+							"",
+							"pm.sendRequest(req, (error, response) => {",
+							"    pm.expect(response.code).to.eq(201)",
+							"    const data = response.json().data",
+							"    pm.variables.set('createdUserID', data.id)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"User has been deleted\", () => {",
+							"    pm.expect(pm.response.code).to.eq(204)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{apiURL}}/api/users/:userID",
+					"host": [
+						"{{apiURL}}"
+					],
+					"path": [
+						"api",
+						"users",
+						":userID"
+					],
+					"variable": [
+						{
+							"key": "userID",
+							"value": "{{createdUserID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiURL",
+			"value": "http://localhost:4000",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+
+  front:
+    build: ./front
+    ports:
+      - 8081:8080
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATABASE=gotham_api_dev
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - back
+    
+
+  api:
+    build: ./gotham_api
+    command: /bin/bash -c 'mix deps.get && mix ecto.reset && mix ecto.migrate && mix phx.server'
+    ports:
+      - "4000:4000"
+    environment:
+      - MIX_ENV=dev
+      - PGHOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATABASE=gotham_api_dev
+    depends_on:
+      - db
+    networks:
+      - back
+
+networks:
+  back:
+    driver: bridge
+
+volumes:
+  postgres-data:

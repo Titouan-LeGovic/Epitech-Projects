@@ -1,0 +1,32 @@
+[
+    {
+        "id": "637b983557d30a5cb5fb0396",
+        "firstname": "test",
+        "lastname": "test",
+        "email": "test@email.com",
+        "password": "$2a$10$9cNcUgbHccvoLyFHQSwLJOZgcLpXd8lDsydGY.K4VZtglKztaUuTC",
+        "role": "ROLE_USER",
+        "deleted": false,
+        "_class": "eu.epitech.authentication.model.Users"
+    },
+    {
+        "id": "6384849f552377409576fa2c",
+        "firstname": "bernadette",
+        "lastname": "dupond",
+        "email": "bernadette@email.com",
+        "password": "$2a$10$QWdsCfbNmVskrUpXVDIm1.kFe8o.fkIgCyRgpKSmp3Gs02vMEBxSi",
+        "role": "ROLE_SALE",
+        "deleted": false,
+        "_class": "eu.epitech.authentication.model.Users"
+    },
+    {
+        "id": "638484e7552377409576fa2e",
+        "firstname": "josephine",
+        "lastname": "legoff",
+        "email": "josephine@email.com",
+        "password": "$2a$10$gw0ZSB/fpB9TO36ZHEGumehTrDer43GEv8aaJrOZ4cCNlbCaC/9DG",
+        "role": "ROLE_SALE",
+        "deleted": false,
+        "_class": "eu.epitech.authentication.model.Users"
+    }
+]

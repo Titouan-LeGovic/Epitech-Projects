@@ -1,0 +1,30 @@
+[
+  {
+    "id":"638dd7b823d78512f007eae4",
+    "articleId":"63849391b7cfe11a6dd1572",
+    "userId":"638484e7552377409576fa2e",
+    "buy":false,
+    "createdDate":"2022-12-05T12:36:24.466Z",
+    "updatedDate":"2022-12-05T12:36:24.466Z",
+    "deleted":false
+
+  },
+  {
+    "id":"638de9d23516123e7909f7bf",
+    "articleId":"6384a972b7cfe11a6dd1572d",
+    "userId":"638484e7552377409576fa2e",
+    "buy":false,
+    "createdDate":"2022-12-05T13:53:38.087Z",
+    "updatedDate":"2022-12-05T14:48:21.853Z",
+    "deleted":false
+  },
+  {
+    "_id":"638dea003516123e7909f7c0",
+    "articleId":"6384a97cb7cfe11a6dd1572e",
+    "userId":"638484e7552377409576fa2e",
+    "buy":false,
+    "createdDate":"2022-12-05T13:54:24.746Z",
+    "updatedDate":"2022-12-05T13:54:24.746Z",
+    "deleted":false
+  }
+]

@@ -1,0 +1,52 @@
+[
+    {
+        "id": "63849391b7cfe11a6dd1572c",
+        "name": "intellij",
+        "price": 202.2,
+        "description": "IDE pour Java et Flutter si extension installé",
+        "userId": "638484e7552377409576fa2e",
+        "createdDate": "2022-11-28T11:55:13.394Z",
+        "updatedDate": "2022-11-28T11:55:13.394Z",
+        "deleted": false
+    },
+    {
+        "id": "6384a972b7cfe11a6dd1572d",
+        "name": "intellij",
+        "price": 202.2,
+        "description": "IDE pour Java et Flutter si extension installé",
+        "userId": "638484e7552377409576fa2e",
+        "createdDate": "2022-11-28T13:28:34.485Z",
+        "updatedDate": "2022-11-28T13:28:34.485Z",
+        "deleted": false
+    },
+    {
+        "id": "6384a97cb7cfe11a6dd1572e",
+        "name": "vscode",
+        "price": 22.2,
+        "description": "IDE pour Java et Flutter si extension installé",
+        "userId": "638484e7552377409576fa2e",
+        "createdDate": "2022-11-28T13:28:44.314Z",
+        "updatedDate": "2022-11-28T13:28:44.314Z",
+        "deleted": false
+    },
+    {
+        "id": "6384d4ef2441166414889b89",
+        "name": "vélo",
+        "price": 500,
+        "description": "IDE pour Java et Flutter si extension installé",
+        "userId": "638484e7552377409576fa2e",
+        "createdDate": "2022-11-28T16:34:07.290Z",
+        "updatedDate": "2022-11-28T16:34:07.290Z",
+        "deleted": false
+    },
+    {
+        "id": "6384d4fc2441166414889b8a",
+        "name": "moto",
+        "price": 7500,
+        "description": "IDE pour Java et Flutter si extension installé",
+        "userId": "638484e7552377409576fa2e",
+        "createdDate": "2022-11-28T16:34:20.491Z",
+        "updatedDate": "2022-11-28T16:34:20.491Z",
+        "deleted": false
+    }
+]

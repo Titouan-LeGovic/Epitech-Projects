@@ -1,0 +1,116 @@
+@import './base.css';
+
+body{
+  justify-content: center;
+  align-items: center;
+  /* background-color : white !important; */
+  background-color: aliceblue;
+  color : black !important;
+}
+
+#app {
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+h1 {
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  color: rgb(50, 0, 50);
+  border-bottom: 0.2em ridge rgb(50, 0, 50);
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 5px;
+  padding-right: 1em;
+  width: fit-content;
+}
+
+
+
+
+
+.btns {
+  display: flex;
+}
+.container {
+  padding-top: 2em;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+}
+.subContainer {
+  display: grid;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+}
+.container .btns {
+  display: flex;
+  margin-left: auto;
+  margin-right: 5em;
+  width: 5em;
+}
+.wrapper {
+  display: block;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  /* background-color: rgba(50, 0, 50, 0.1); */
+}
+button {
+  margin-top: 1em;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  padding: 5px;
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  border-width: 1px;
+}
+
+.cnxBtn {
+  border: none;
+  margin-left: 15%;
+  padding: 6px;
+  font-weight: lighter;
+  color: rgb(255, 240, 255);
+  background-color: rgb(80, 0, 80);
+}
+.cnxBtn:hover {
+  border: ridge 2px rgb(80, 0, 80);
+  margin-left: 15%;
+  padding: 4px;
+  font-weight: lighter;
+  color: rgb(80, 0, 80);
+  background-color: rgba(81, 0, 81, 0.4);
+}

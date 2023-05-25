@@ -1,0 +1,67 @@
+buildscript {
+    ext {
+        springBootVersion = '3.0.0'
+        embeddedMongoVersion = '3.5.1'
+        apacheCommonVersion = '3.12.0'
+        apacheCommonTextVersion = '1.10.0'
+        guavaVersion = '31.0.1-jre'
+        springfoxVersion = '3.0.0'
+        jjwtVersion = '0.11.5'
+        jibVersion = '3.3.0'
+        junitVersion = '5.9.0'
+        cloudTasksVersion = '2.5.0'
+        pubSubVersion = '1.120.24'
+        nettyVersion = '4.1.84.Final'
+        sentryVersion = '6.6.0'
+        gcsVersion = '2.14.0'
+        stripeVersion = '21.12.0'
+        gsonVersion = "2.10"
+    }
+
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'eu.epitech'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-webflux:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-data-mongodb-reactive"
+    implementation "org.springframework.boot:spring-boot-starter-security"
+    implementation "io.jsonwebtoken:jjwt-api:${jjwtVersion}"
+    implementation "io.jsonwebtoken:jjwt-impl:${jjwtVersion}"
+    implementation "io.jsonwebtoken:jjwt-jackson:${jjwtVersion}"
+    implementation "org.apache.commons:commons-text:${apacheCommonTextVersion}"
+    implementation "org.apache.commons:commons-lang3:${apacheCommonVersion}"
+    implementation "io.springfox:springfox-boot-starter:${springfoxVersion}"
+    runtimeOnly "io.netty:netty-resolver-dns-native-macos:${nettyVersion}:osx-x86_64"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testImplementation "de.flapdoodle.embed:de.flapdoodle.embed.mongo:${embeddedMongoVersion}"
+    testImplementation "org.springframework.boot:spring-boot-starter-reactor-netty:${springBootVersion}"
+    testImplementation "com.google.code.gson:gson:${gsonVersion}"
+    testImplementation "io.netty:netty-resolver-dns-native-macos:${nettyVersion}:osx-x86_64"
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
